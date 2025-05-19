@@ -1,73 +1,145 @@
-body {
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('/public/img/fondo.png') no-repeat center center fixed;
-    background-size: cover;
-    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../../public/img/FondoPrincipal.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    background: linear-gradient(90deg, #ff7300a8 0%, #51f311 100%);
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #fff;
+    width: 100%;
 }
 
 .logo img {
-    height: 100px;
+    height: 60px;
 }
 
+/* Menú de navegación */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
-    padding: 0;
+    gap: 20px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
+nav ul li {
     position: relative;
 }
 
-nav a::after {
-    content: "Próximamente";
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Brush Script MT', cursive;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover */
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* Línea decorativa debajo de los enlaces */
+nav ul li::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #ff4500;
+    transition: width 0.3s ease;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+/* 🔹 Contenedor de los planetas */
+.galeria {
+    position: relative;
+    width: 100%;
+    height: 700px;
+}
+
+/*toca organizar bien la orbita que se ven raros los planetas  */
+.orbita {
     position: absolute;
-    left: 0;
-    top: 100%;
-    color: rgb(252, 252, 252);
-    font-size: 12px;
-    opacity: 0;
-    transition: opacity 0.3s;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-nav a:hover::after {
-    opacity: 1;
-}
 
-.estrellas h2 {
+.planeta {
     position: absolute;
-    color: rgb(255, 0, 0);
-    font-size: 20px;
+    text-align: center; 
 }
 
-.texto1 {
-    top: 350px;
-    left: 250px;
+/* aca son las posiciones de los planetas */
+.planeta-transmedia { top: 50%; left: 0; transform: translate(0, -50%); }
+.planeta-informacion { top: 85%; left: 15%; transform: translate(-50%, -50%); }
+.planeta-productos { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.planeta-eventos { top: 85%; left: 85%; transform: translate(-50%, -50%); }
+.planeta-fuego { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+.planeta-morado1 { top: 15%; left: 85%; transform: translate(-50%, -50%); }
+.planeta-morado2 { top: 0; left: 50%; transform: translate(-50%, 0); }
+
+.planeta img {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.texto2 {
-    top:190px;
-    left: 530px;
+/*  Estilos de los botones */
+.planeta .btn {
+    width: 140px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.texto3 {
-    top: 350px;
-    left: 870px;
-}
 
-.texto4 {
-    top: 580px;
-    left: 570px;
+.transmedia { background-color: #027d72; color: #fff; }
+.eventos { background-color: #027d72; color: #fff; }
+.productos { background-color: #027d72; color: #fff; }
+.informacion { background-color: #027d72; color: #fff; }
+
+
+.btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8; 
 }
