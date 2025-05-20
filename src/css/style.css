@@ -1,8 +1,184 @@
-body {
+* {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../../public/img/FondoPrincipal.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -----------------------------
+   HEADER + NAVEGACIÓN
+----------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #fff;
+  width: 100%;
+}
+
+.logo img {
+  height: 60px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Brush Script MT', cursive;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff4500;
+}
+
+nav ul li::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #ff4500;
+  transition: width 0.3s ease;
+}
+
+nav ul li:hover::after {
+  width: 100%;
+}
+
+/* -----------------------------
+   GALERÍA DE PLANETAS
+----------------------------- */
+.galeria {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.orbita {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planeta {
+  position: absolute;
+  text-align: center; 
+}
+
+.planeta-transmedia { top: 50%; left: 0; transform: translate(0, -50%); }
+.planeta-informacion { top: 85%; left: 15%; transform: translate(-50%, -50%); }
+.planeta-productos { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.planeta-eventos { top: 85%; left: 85%; transform: translate(-50%, -50%); }
+.planeta-fuego { top: 50%; left: 100%; transform: translate(-100%, -50%); }
+.planeta-morado1 { top: 15%; left: 85%; transform: translate(-50%, -50%); }
+.planeta-morado2 { top: 0; left: 50%; transform: translate(-50%, 0); }
+
+.planeta img {
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Botones de planetas */
+.planeta .btn {
+  width: 140px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.transmedia,
+.eventos,
+.productos,
+.informacion {
+  background-color: #027d72;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8; 
+}
+
+/* -----------------------------
+   SECCIONES LABVIVO Y PROYECTOS
+----------------------------- */
+.seccion {
+  display: none;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+.seccion.activa {
+  display: block;
+}
+
+/* LabVivo */
+.labvivo-section {
+  background-image: url('../../public/img/fondo-texto.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.labvivo-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.labvivo-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* Proyectos */
 .proyecto-bg {
   background-image: url('../../public/img/fondo-proyectos.jpg'); 
   background-size: cover;
@@ -31,25 +207,89 @@ body {
   font-size: 1.5em;
 }
 
-.labvivo-section {
-  background-image: url('../../public/img/fondo-texto.jpg');
+.imagen-proyecto {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Botón de navegación entre secciones */
+.boton-navegacion {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.boton-navegacion:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ventana {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.ventana.activa {
+  display: block;
+}
+
+/* Botón "← Anterior" a la izquierda */
+.boton-navegacion.izquierda {
+  left: 30px;
+  right: auto;
+}
+.detalle-proyecto {
   background-size: cover;
   background-position: center;
-  padding: 100px 30px;
+  padding: 60px 30px;
   color: #fff;
+  min-height: 100vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.labvivo-section h1 {
+.titulo-proyecto {
   font-size: 2.5em;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.contenido-detalle {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.contenido-detalle div {
+  width: 30%;
+  min-width: 250px;
+  text-align: left;
+}
+
+.contenido-detalle h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
   text-shadow: 2px 2px 4px #000;
 }
 
-.labvivo-section p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.2em;
-  line-height: 1.8em;
-  text-shadow: 2px 2px 4px #000;
+.contenido-detalle p {
+  font-size: 1em;
+  line-height: 1.6em;
+  text-shadow: 1px 1px 3px #000;
 }
