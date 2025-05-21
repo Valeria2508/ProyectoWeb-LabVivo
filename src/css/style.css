@@ -5,13 +5,18 @@
     box-sizing: border-box;
 }
 
-
 html, body {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
+/* Fondo general */
 body {
     font-family: Arial, sans-serif;
     background-image: url("../../public/img/FondoPrincipal.jpg");
@@ -19,9 +24,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Estilos del header */
@@ -35,19 +37,11 @@ header {
     width: 100%;
 }
 
-.logo img {
-    height: 60px;
-}
-
 /* Menú de navegación */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-}
-
-nav ul li {
-    position: relative;
 }
 
 nav ul li a {
@@ -58,88 +52,70 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-/* Efecto hover */
 nav ul li a:hover {
     color: #ff4500;
 }
 
-/* Línea decorativa debajo de los enlaces */
-nav ul li::after {
-    content: "";
-    display: block;
-    width: 0%;
-    height: 2px;
-    background-color: #ff4500;
-    transition: width 0.3s ease;
-}
-
-nav ul li:hover::after {
-    width: 100%;
-}
-
-/* 🔹 Contenedor de los planetas */
+/* Contenedor de planetas */
 .galeria {
     position: relative;
     width: 100%;
-    height: 700px;
-}
-
-/*toca organizar bien la orbita que se ven raros los planetas  */
-.orbita {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-.planeta {
-    position: absolute;
-    text-align: center; 
+/* Mejora la órbita para que se vea centrada */
+.orbita {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* aca son las posiciones de los planetas */
-.planeta-transmedia { top: 50%; left: 0; transform: translate(0, -50%); }
-.planeta-informacion { top: 85%; left: 15%; transform: translate(-50%, -50%); }
-.planeta-productos { top: 100%; left: 50%; transform: translate(-50%, -50%); }
-.planeta-eventos { top: 85%; left: 85%; transform: translate(-50%, -50%); }
-.planeta-fuego { top: 50%; left: 100%; transform: translate(-100%, -50%); }
-.planeta-morado1 { top: 15%; left: 85%; transform: translate(-50%, -50%); }
-.planeta-morado2 { top: 0; left: 50%; transform: translate(-50%, 0); }
+/* Posicionamiento de los planetas en órbita */
+.planeta {
+    position: absolute;
+    text-align: center;
+}
+
+.planeta-transmedia { top: 15%; left: 55%; transform: translate(-50%, -50%); }
+.planeta-informacion { top: 65%; left: 55%; transform: translate(-50%, -50%); }
+.planeta-productos { top: 70%; left: 35%; transform: translate(-50%, -50%); }
+.planeta-eventos { top: 80%; left: 60%; transform: translate(-50%, -50%); }
+.planeta-fuego { top: 25%; left: 75%; transform: translate(-50%, -50%); }
+.planeta-morado1 { top: 75%; left: 75%; transform: translate(-50%, -50%); }
+.planeta-morado2 { top: 50%; left: 90%; transform: translate(-50%, -50%); }
+
+
 
 .planeta img {
     width: 120px;
     height: auto;
-    border-radius: 50%;
     transition: transform 0.3s ease;
-    display: block;
-    margin-bottom: 10px;
 }
 
-/*  Estilos de los botones */
+/* Estilos de los botones */
 .planeta .btn {
     width: 140px;
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 8px;
-    border: none;
+    border: none; 
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-.transmedia { background-color: #027d72; color: #fff; }
-.eventos { background-color: #027d72; color: #fff; }
-.productos { background-color: #027d72; color: #fff; }
-.informacion { background-color: #027d72; color: #fff; }
-
+.transmedia, .eventos, .productos, .informacion {
+    background-color: #027d72;
+    color: #fff;
+}
 
 .btn:hover {
     transform: scale(1.1);
-    opacity: 0.8; 
+    opacity: 0.8;
 }
+
