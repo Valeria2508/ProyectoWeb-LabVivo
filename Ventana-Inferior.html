@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'AmsiPro-Bold', AmsiPro-Light;
+      font-family: 'AmsiPro-Bold', 'AmsiPro-Light';
     }
 
     footer {
@@ -15,52 +15,52 @@
       align-items: flex-start;
       padding: 50px;
       background: linear-gradient(to right, #161616, #161616);
-      color: rgb(255, 255, 255);
+      color: rgb(255, 255, 255);/* Color de todo el texto */
       flex-wrap: wrap;
     }
-
+/* Contactanos width texto */
     .contacto {
       max-width: 45%;
     }
-
+/* Titulo "contactanos" */
     .contacto h2 {
       margin: 0;
-      font-size: 1.5em;
+      font-size: 3.3em;
     }
-
+/* Contactanos */
     .contacto p {
       margin: 0;
       margin-top: 10px;
-      font-size: 1.2em;
+      font-size: 1.5em;
     }
-
+/* Contactanos letra correo labvivo */
     .contacto a {
-      font-style: italic;
-      color: white;
+      font-style: AmsiPro-Bold;
+      color: rgb(252, 252, 252);
       text-decoration: underline;
     }
-
+/* Iconos redes sociales */
     .social-icons {
       margin-top: 20px;
     }
-
+/* Iconos redes sociales */
     .social-icons i {
       margin-right: 15px;
       font-size: 20px;
     }
-
+/* Cuadro Correo */
     .correo {
       background-color: rgba(235, 233, 233, 0.1);
       padding: 25px;
       max-width: 300px;
       border-radius: 5px;
     }
-
+/* Cuadro Correo */
     .correo h3 {
       font-style: AmsiPro-ligt;
       margin-top: 0;
     }
-
+/* Botón Cuadro Correo */
     .correo input[type="email"] {
       width: 92%;
       padding: 9px;
@@ -68,7 +68,7 @@
       border: 1px solid rgb(255, 69, 0);
       position: relative;
     }
-
+/* Botón Cuadro Correo */
     .correo button {
       background-color: rgb(255, 69, 0);
       border: none;
@@ -76,22 +76,22 @@
       width: 100%;
       cursor: pointer;
     }
-
-    .bottom-text {
-      margin-top: 30px;
-      font-size: 0.8em;
-      font-style: italic;
-    }
-
-    .links {
+/* Separación entre terminos-condiciones-politica y copyright */
+    .Copyright {
       margin-top: 15px;
+      font-size: 0.8em;
+      font-style: AmsiPro-Bold;
     }
-
-    .links a {
-      margin-right: 20px;
+/* Separación entre redes sociales y terminos */
+    .Terminos-condiciones{
+      margin-top: 55px;
+    }
+/* Texto terminos y politica priv */
+    .Terminos-condiciones {
+      margin-right: 10px;
       color: rgb(255, 255, 255);
       font-style: AmsiPro-Light;
-      font-size: 0.9em;
+      font-size: 0.8em;
       text-decoration: none;
     }
   </style>
@@ -99,18 +99,17 @@
 <body>
 
 <footer>
-  <div class="contacto">
-    <h1>Contactanos</h1>
+  <div class="contacto"><!-- parte superior/inicial del footer -->
+    <h2>Contactanos</h2>
     <p>Para hacer proyectos<br>creativos juntos</p>
     <p>
         <br>
-        <br>
+        <br> <!-- Correo Labvivo y Número -->
       <a href="mailto:Labvivo@elpoli.edu.co"><em>Labvivo@elpoli.edu.co</em></a>&ensp;|&ensp;+52-1-33-12345678
     </p>
     <br>
     <br>
-    <div class="Iconos Sociales">
-      
+    <div class="Iconos Sociales"><!-- Los iconos de las redes jasj -->
       <i class="facebook-f"><img src="public/img/Iconos Sociales/icons8-facebook-24.png" alt="Facebook" height="30">&emsp;&emsp;</i>
       <i class="instagram"><img src="public/img/Iconos Sociales/icons8-instagram-64.png" alt="Instagram" height="29">&emsp;&emsp;</i>
       <i class="youtube"><img src="public/img/Iconos Sociales/icons8-youtube-play-50.png" alt="Youtube" height="30">&emsp;&emsp;</i>
@@ -118,14 +117,14 @@
     </div>
     <br>
     <br>
-    <div class="links">
-      <a href="#">Términos y Condiciones</a>
+    <div class="Terminos-condiciones"><!-- terminos y condiciones -->
+      <a href="#">Términos y Condiciones</a> &emsp;
       <a href="#">Política de Privacidad</a>
     </div>
-    <div class="bottom-text">© 2035 Creado por Grupo de desarrolladores <em>Labvivo</em></div>
+    <div class="Copyright">© 2035 Creado por Grupo de desarrolladores <em>Labvivo</em></div>
   </div>
 
-  <div class="correo">
+  <div class="correo"><!-- la caja de ingresar correo -->
     <h3>Recibe mis correos</h3>
     <input type="email" placeholder="Ingresa tu email">
     <button>Enviar</button>
