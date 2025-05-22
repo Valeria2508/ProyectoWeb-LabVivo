@@ -1,3 +1,4 @@
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
@@ -5,21 +6,21 @@
 }
 
 html, body {
+
+  height: 100%;
+  font-family: Arial, sans-serif;
     height: 100%;
     overflow-x: hidden;
+
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-image: url("../../public/img/FondoPrincipal.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* HABILITA SCROLL SUAVE (también está en HTML como refuerzo) */
+html {
+  scroll-behavior: smooth;
 }
+
+
+/* HEADER FIJO */
 
 .contenedor {
     min-height: 100vh;
@@ -31,14 +32,19 @@ body {
    HEADER + NAVEGACIÓN
 ----------------------------- */
 
+
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid #fff;
-  width: 100%;
 }
 
 
@@ -48,14 +54,11 @@ header {
   height: 60px;
 }
 
+/* MENÚ */
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
-}
-
-nav ul li {
-  position: relative;
 }
 
 nav ul li a {
@@ -68,6 +71,15 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #ff4500;
+}
+
+
+/* SECCIONES GENERALES */
+section {
+  min-height: 100vh;
+  padding: 120px 20px 80px; /* espacio extra arriba por el header */
+  color: #fff;
+  text-align: center;
 }
 
 /* Contenedor de planetas */
@@ -170,6 +182,7 @@ nav ul li a:hover {
 .miembros p {
     font-size: 16px;
     line-height: 1.5;
+}
 
 
 nav ul li::after {
@@ -183,34 +196,54 @@ nav ul li::after {
 
 nav ul li:hover::after {
   width: 100%;
+
 }
 
-/* -----------------------------
-   GALERÍA DE PLANETAS
------------------------------ */
+/* 🔹 SECCIÓN PLANETAS */
 .galeria {
+  background-image: url('../../public/img/FondoPrincipal.jpg');
+  background-size: cover;
+  background-position: center;
   position: relative;
-  width: 100%;
-  height: 700px;
 }
 
 .orbita {
-  position: absolute;
   width: 500px;
   height: 500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  margin: 0 auto;
 }
 
 .planeta {
   position: absolute;
-  text-align: center; 
+  text-align: center;
 }
 
+.planeta img {
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.planeta .btn {
+  background-color: #027d72;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-size: 16px;
+}
+
+.planeta .btn:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* Posiciones de los planetas */
 .planeta-transmedia { top: 50%; left: 0; transform: translate(0, -50%); }
 .planeta-informacion { top: 85%; left: 15%; transform: translate(-50%, -50%); }
 .planeta-productos { top: 100%; left: 50%; transform: translate(-50%, -50%); }
@@ -219,61 +252,16 @@ nav ul li:hover::after {
 .planeta-morado1 { top: 15%; left: 85%; transform: translate(-50%, -50%); }
 .planeta-morado2 { top: 0; left: 50%; transform: translate(-50%, 0); }
 
-.planeta img {
-  width: 120px;
-  height: auto;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  display: block;
-  margin-bottom: 10px;
-}
 
-/* Botones de planetas */
-.planeta .btn {
-  width: 140px;
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.transmedia,
-.eventos,
-.productos,
-.informacion {
-  background-color: #027d72;
-  color: #fff;
-}
-
-.btn:hover {
-  transform: scale(1.1);
-  opacity: 0.8; 
-}
-
-/* -----------------------------
-   SECCIONES LABVIVO Y PROYECTOS
------------------------------ */
-.seccion {
-  display: none;
-  height: 100vh;
-  overflow: auto;
-  position: relative;
-}
-
-.seccion.activa {
-  display: block;
-}
-
-/* LabVivo */
+/* 🔹 SECCIÓN LABVIVO */
 .labvivo-section {
   background-image: url('../../public/img/fondo-texto.jpg');
   background-size: cover;
   background-position: center;
-  padding: 100px 30px;
   color: #fff;
   text-align: center;
+    height: 100%;
+  overflow: hidden;
 }
 
 .labvivo-section h1 {
@@ -290,14 +278,13 @@ nav ul li:hover::after {
   text-shadow: 2px 2px 4px #000;
 }
 
-/* Proyectos */
+/* 🔹 SECCIÓN TRANSMEDIA / PROYECTOS */
 .proyecto-bg {
-  background-image: url('../../public/img/fondo-proyectos.jpg'); 
+  background-image: url('../../public/img/fondo-proyectos.jpg');
   background-size: cover;
   background-position: center;
-  padding: 100px 0;
-  color: #fff;
-  text-align: center;
+  height: 100%;
+  overflow: hidden;
 }
 
 .proyecto-container {
@@ -306,72 +293,91 @@ nav ul li:hover::after {
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 30px;
 }
 
 .proyecto {
   width: 45%;
-  margin: 20px 0;
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
-.proyecto h2,
-.proyecto p {
-  text-shadow: 2px 2px 4px #000;
+.proyecto h2 {
   font-size: 1.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.proyecto p {
+  font-size: 1em;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px #000;
 }
 
 .imagen-proyecto {
   width: 100%;
   max-width: 300px;
-  height: auto;
   border-radius: 10px;
-  margin: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  margin: 15px auto;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
-/* Botón de navegación entre secciones */
-.boton-navegacion {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 0.9em;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.boton-navegacion:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.ventana {
-  display: none;
-  height: 100vh;
+.miniatura-proyecto {
   width: 100%;
-  overflow: auto;
-}
-
-.ventana.activa {
+  max-width: 200px;
+  border-radius: 8px;
+  margin: 10px auto;
   display: block;
 }
 
-/* Botón "← Anterior" a la izquierda */
-.boton-navegacion.izquierda {
-  left: 30px;
-  right: auto;
+/* 🔹 CARRUSEL */
+.carrusel {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 20px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(255,255,255,0.2);
 }
 .detalle-proyecto {
   background-size: cover;
   background-position: center;
-  padding: 60px 30px;
+  padding: 100px 30px;
   color: #fff;
-  min-height: 100vh;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .titulo-proyecto {
@@ -404,4 +410,60 @@ nav ul li:hover::after {
   font-size: 1em;
   line-height: 1.6em;
   text-shadow: 1px 1px 3px #000;
+}
+.detalle-proyecto {
+  padding: 100px 30px;
+  background: transparent;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.detalle-contenedor {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.titulo-proyecto {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.contenido-detalle {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.contenido-detalle div {
+  flex: 1 1 30%;
+  min-width: 250px;
+}
+
+.contenido-detalle h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.contenido-detalle p {
+  font-size: 1em;
+  line-height: 1.6em;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.miniatura-proyecto {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
