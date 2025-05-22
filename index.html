@@ -26,19 +26,24 @@
 </head>
 <body>
 
-  <!-- ✅ HEADER -->
-  <header>
-    <div class="logo">
-      <img src="./public/img/logo.png" alt="Logo" height="60">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#labvivo">Información</a></li>
-        <li><a href="#transmedia">Transmedia</a></li>
-      </ul>
-    </nav>
-  </header>
+           
+  <!-- VENTANA 1: Header + Galería -->
+  <section class="ventana activa" id="ventana-1">
+    <header>
+        <div class="logo">
+            <img src="./public/img/logo.png" alt="Logo" height="100">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#transme">Transmedia</a></li>
+                <li><a href="#productos">Productos Digitales</a></li>
+                <li><a href="#informacion">Información</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#equipo">Equipo de trabajo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
   <!-- ✅ SECCIÓN: PLANETAS -->
   <section id="inicio" class="galeria">
@@ -79,8 +84,67 @@
     </div>
   </section>
 
+
+        <!-- Sección "Equipo de trabajo" -->
+        <section id="equipo" class="equipo">
+            <h2>Equipo de Trabajo</h2>
+            <div class="Equipo">
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Valeria">
+                    <h3>Valeria</h3>
+                    <h4>Designer / Developer & Creative Director</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>santiago</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>freddy</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>isa</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>max</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>Simón</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>david</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+                <div class="miembros">
+                    <img src="public/img/Quienes Somos/Raccoon Skateboard Coffee.jpeg" alt="Simón">
+                    <h3>maria</h3>
+                    <h4>Designer / Developer</h4>
+                    <p>Información personal / laboral a rellenar</p>
+                </div>
+            </div>
+        </section>
+
+    <div class="boton-navegacion" onclick="mostrarVentana(2)">Siguiente →</div>
+
   <!-- ✅ SECCIÓN: ¿QUÉ ES LABVIVO? -->
-  <section id="labvivo" class="labvivo-section" style="background-image: url('./public/img/fondo-texto.jpg');">
+  <section class="ventana" id="ventana-2">
+    <section id="labvivo" class="labvivo-section" style="background-image: url('./public/img/fondo-texto.jpg');">
     <h1>¿Qué es LabVivo?</h1>
     <p>
       Este texto simulado sirve únicamente como referencia visual dentro del diseño. 
@@ -88,7 +152,10 @@
       propuesta o presentación en curso. La finalidad de este texto de relleno es permitir 
       una evaluación del equilibrio gráfico y la organización del contenido antes de añadir los datos finales.
     </p>
-  </section>
+      <div class="boton-navegacion" onclick="mostrarVentana(3)">Siguiente →</div>
+      <div class="boton-navegacion izquierda" onclick="mostrarVentana(1)">← Anterior</div>
+  </section> 
+    </section>
 
   <!-- ✅ SECCIÓN: TRANSMEDIA (PROYECTOS) -->
   <section id="transmedia" class="proyecto-bg" style="background-image: url('./public/img/fondo-proyectos.jpg');">
@@ -241,8 +308,16 @@
         </p>
       </div>
     </div>
+
   </div>
 </div>
+
+    <div class="boton-navegacion izquierda" onclick="mostrarVentana(3)">← Volver</div>
+  </section>
+</section>
+      
+  </main>
+
 
 </section>
 

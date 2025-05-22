@@ -6,8 +6,12 @@
 }
 
 html, body {
+
   height: 100%;
   font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+
 }
 
 /* HABILITA SCROLL SUAVE (también está en HTML como refuerzo) */
@@ -15,7 +19,20 @@ html {
   scroll-behavior: smooth;
 }
 
+
 /* HEADER FIJO */
+
+.contenedor {
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+}
+
+/* -----------------------------
+   HEADER + NAVEGACIÓN
+----------------------------- */
+
+
 header {
   position: fixed;
   top: 0;
@@ -29,6 +46,9 @@ header {
   align-items: center;
   padding: 15px 30px;
 }
+
+
+/* Menú de navegación */
 
 .logo img {
   height: 60px;
@@ -53,12 +73,130 @@ nav ul li a:hover {
   color: #ff4500;
 }
 
+
 /* SECCIONES GENERALES */
 section {
   min-height: 100vh;
   padding: 120px 20px 80px; /* espacio extra arriba por el header */
   color: #fff;
   text-align: center;
+}
+
+/* Contenedor de planetas */
+.galeria {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mejora la órbita para que se vea centrada */
+.orbita {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Posicionamiento de los planetas en órbita */
+.planeta {
+    position: absolute;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.planeta-transmedia { top: 5%; left: 55%; transform: translate(-50%, -50%); }
+.planeta-informacion { top: 80%; left: 55%; transform: translate(-50%, -50%); }
+.planeta-productos { top: 40%; left: 5%; transform: translate(-50%, -50%); }
+.planeta-eventos { top: 60%; left: 80%; transform: translate(-50%, -50%); }
+.planeta-fuego { top: 22%; left: 80%; transform: translate(-50%, -50%); }
+.planeta-morado1 { top: 70%; left: 12%; transform: translate(-50%, -50%); }
+.planeta-morado2 { top: 15%; left: 20%; transform: translate(-50%, -50%); }
+
+
+.planeta img {
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+.planeta img:hover {
+    transform: scale(1.3); /* Aumenta un 30% su tamaño */
+}
+
+/* Estilos para la sección "Quiénes Somos" */
+.equipo {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.equipo h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.Equipo {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.miembros {
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.miembros:hover {
+    transform: scale(1.1);
+}
+
+.miembros img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.miembros h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.miembros h4 {
+    font-size: 18px;
+    color: #ff4500;
+    margin-bottom: 10px;
+}
+
+.miembros p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+nav ul li::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #ff4500;
+  transition: width 0.3s ease;
+}
+
+nav ul li:hover::after {
+  width: 100%;
+
 }
 
 /* 🔹 SECCIÓN PLANETAS */
