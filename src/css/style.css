@@ -5,13 +5,24 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url('../../public/img/FondoPrincipal.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+
 html, body {
 
   height: 100%;
   font-family: Arial, sans-serif;
     height: 100%;
     overflow-x: hidden;
-
+    scroll-behavior: smooth;
 }
 
 /* HABILITA SCROLL SUAVE (también está en HTML como refuerzo) */
@@ -29,7 +40,7 @@ html {
 }
 
 /* -----------------------------
-   HEADER + NAVEGACIÓN
+  HEADER + NAVEGACIÓN
 ----------------------------- */
 
 
@@ -83,50 +94,82 @@ section {
 }
 
 /* Contenedor de planetas */
-.galeria {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /* Mejora la órbita para que se vea centrada */
 .orbita {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #000; /* opcional para que se vea mejor */
 }
 
-/* Posicionamiento de los planetas en órbita */
+.orbita-planeta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: girar 60s linear infinite;
+}
+
+/* Aplica una rotación inicial distinta a cada planeta usando una variable */
+.orbita-planeta .planeta {
+  transform: rotate(calc(var(--i) * (360deg / 7))) translateX(250px);
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo de los planetas */
 .planeta {
-    position: absolute;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
-
-.planeta-transmedia { top: 5%; left: 55%; transform: translate(-50%, -50%); }
-.planeta-informacion { top: 80%; left: 55%; transform: translate(-50%, -50%); }
-.planeta-productos { top: 40%; left: 5%; transform: translate(-50%, -50%); }
-.planeta-eventos { top: 60%; left: 80%; transform: translate(-50%, -50%); }
-.planeta-fuego { top: 22%; left: 80%; transform: translate(-50%, -50%); }
-.planeta-morado1 { top: 70%; left: 12%; transform: translate(-50%, -50%); }
-.planeta-morado2 { top: 15%; left: 20%; transform: translate(-50%, -50%); }
-
 
 .planeta img {
-    width: 120px;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
 }
+
 .planeta img:hover {
-    transform: scale(1.3); /* Aumenta un 30% su tamaño */
+  transform: scale(1.2);
 }
+
+
+
+.etiqueta {
+  position: absolute;
+  top: 110%; /* debajo del planeta */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.planeta:hover .etiqueta {
+  opacity: 1;
+}
+
 
 /* Estilos para la sección "Quiénes Somos" */
 .equipo {
@@ -199,58 +242,6 @@ nav ul li:hover::after {
 
 }
 
-/* 🔹 SECCIÓN PLANETAS */
-.galeria {
-  background-image: url('../../public/img/FondoPrincipal.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.orbita {
-  width: 500px;
-  height: 500px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.planeta {
-  position: absolute;
-  text-align: center;
-}
-
-.planeta img {
-  width: 120px;
-  height: auto;
-  border-radius: 50%;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.planeta .btn {
-  background-color: #027d72;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  font-size: 16px;
-}
-
-.planeta .btn:hover {
-  transform: scale(1.1);
-  opacity: 0.85;
-}
-
-/* Posiciones de los planetas */
-.planeta-transmedia { top: 50%; left: 0; transform: translate(0, -50%); }
-.planeta-informacion { top: 85%; left: 15%; transform: translate(-50%, -50%); }
-.planeta-productos { top: 100%; left: 50%; transform: translate(-50%, -50%); }
-.planeta-eventos { top: 85%; left: 85%; transform: translate(-50%, -50%); }
-.planeta-fuego { top: 50%; left: 100%; transform: translate(-100%, -50%); }
-.planeta-morado1 { top: 15%; left: 85%; transform: translate(-50%, -50%); }
-.planeta-morado2 { top: 0; left: 50%; transform: translate(-50%, 0); }
 
 
 /* 🔹 SECCIÓN LABVIVO */
@@ -318,7 +309,7 @@ nav ul li:hover::after {
 
 .imagen-proyecto {
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
   border-radius: 10px;
   margin: 15px auto;
   display: block;
